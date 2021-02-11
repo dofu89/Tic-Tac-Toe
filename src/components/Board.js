@@ -47,9 +47,7 @@ export default function Board() {
   const draw = board.every((val) => val != null)
   console.log(winner)
 
-  let status = winner
-    ? `Winner is ${winner}`
-    : `Next turn: ${playerX ? 'X' : 'O'}`
+  let status
 
   if (winner) {
     status = `Winner is ${winner}`
