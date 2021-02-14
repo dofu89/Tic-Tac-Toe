@@ -6,6 +6,7 @@ body {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+  background-color: cornflowerblue;
 }
 
 .board {
@@ -28,6 +29,7 @@ body {
   align-items: center;
   font-size: 120px;
   font-weight: 700;
+  background-color: cornflowerblue;
 }
 .squares:hover {
   background-color: rgb(226, 225, 225);
