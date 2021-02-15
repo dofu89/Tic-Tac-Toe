@@ -2,13 +2,18 @@ import React, { useState, useEffect } from 'react'
 import Squares from './Squares'
 
 export default function Board() {
+  let status
   const [board, setBoard] = useState(Array(9).fill(null))
   const [playerX, setPlayerX] = useState(true)
   const [count, setCount] = useState(0)
+  const [newGame, setNewGame] = useState(false)
 
   const handleClick = (index) => {
     const squares = [...board]
-    if (squares[index] || hwoIsTheWinner(board)) return
+
+    if (squares[index] || winner || draw) {
+      return
+    }
 
     squares[index] = playerX ? 'X' : 'O'
     setBoard(squares)
@@ -33,21 +38,25 @@ export default function Board() {
         boardArray[a] === boardArray[b] &&
         boardArray[b] === boardArray[c]
       ) {
-        const winLine = winningLines[i]
         return boardArray[a]
       }
     }
     return
   }
+  const winner = hwoIsTheWinner(board)
+  const draw = board.every((val) => val != null)
+
+  const startGame = () => {
+    console.log('start new game')
+    setBoard(Array(9).fill(null))
+    setPlayerX(true)
+    setCount(0)
+    setNewGame(false)
+  }
 
   const renderBoard = (index) => {
     return <Squares value={board[index]} onClick={() => handleClick(index)} />
   }
-  const winner = hwoIsTheWinner(board)
-  const draw = board.every((val) => val != null)
-  console.log(winner)
-
-  let status
 
   if (winner) {
     status = `Winner is ${winner}`
@@ -61,7 +70,12 @@ export default function Board() {
 
   return (
     <>
-      <div className="status">{status}</div>
+      <div className="status">
+        <div>{status}</div>
+        <button className="button" onClick={() => startGame()}>
+          New Game
+        </button>
+      </div>
       <div className="game">
         <div className="board">
           {renderBoard(0)}

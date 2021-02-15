@@ -51,6 +51,7 @@ body {
   font-size: 8vw;
   font-weight: 700;
   margin-right: -0.1px;
+  margin-bottom: -0.1px;
 }
 .squares:hover {
   background-color: rgb(226, 225, 225);
@@ -58,7 +59,23 @@ body {
 }
 
 .status {
-  font-size: 50px;
+  display: flex;
+  font-size: 5vw;
   padding: 10px;
   margin-bottom: 15px;
+  justify-content: space-between;
+}
+
+.score {
+  display: flex;
+  font-size: 5vw;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.button {
+  width: 83px;
+  height: 15px;
+  font-size: 10px;
+  text-align: center;
 }
