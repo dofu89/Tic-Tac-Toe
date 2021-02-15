@@ -45,9 +45,6 @@ body {
   grid-row-gap: 3px;
 }
 
-.board:active {
-}
-
 .squares {
   display: flex;
   background-color: rgb(255, 255, 255);
